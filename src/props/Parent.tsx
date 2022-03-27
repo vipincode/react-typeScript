@@ -1,10 +1,12 @@
-import * as React from 'react';
-import { Child } from './Child';
+import { ChildAsFC } from './Child';
 
 export const Parent = () => {
   return (
     <div>
-      <Child color="Red" />
+      {/* `Hello, every one this is Vipin Singh` this text is children props, and it rceive bt children */}
+      <ChildAsFC color="Red" onClick={() => console.log('Clicked!')}>
+        Hello, every one this is Vipin Singh
+      </ChildAsFC>
     </div>
   );
 };

@@ -1,26 +1,31 @@
 interface colorProps {
   color: string;
+  onClick: () => void;
 }
 
-// Using this react dont know it it is a compoent
-export const Child = ({ color }: colorProps) => {
+// By this approach you can not directly receive children
+// to getting this need to pass children inside interface, ant give some type right there
+export const Child = ({ color, onClick }: colorProps) => {
   return (
     <div>
       <h1>Hello! My colorid {color}</h1>
+      <button onClick={onClick}>Click me</button>
     </div>
   );
 };
-
-// this is better approach and have upside and benefits
-// this is have some additional properties, like `propType, contentType, display name etc.`
-// to get those just use `ChildAsFC.displayName`
-// FC stands for function compoenet
-export const ChildAsFC: React.FC<colorProps> = ({ color }) => {
+// This is receive an children by default
+// you can receve that children like this
+export const ChildAsFC: React.FC<colorProps> = ({
+  color,
+  onClick,
+  children,
+}) => {
   return (
     <div>
       <h1>Hello! My colorid {color}</h1>
+      {/* Now use that children here */}
+      <p>{children}</p>
+      <button onClick={onClick}>Click me</button>
     </div>
   );
 };
-
-// Note thse are ether approach you can use any as per need.
