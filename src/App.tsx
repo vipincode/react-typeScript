@@ -1,11 +1,10 @@
-import React from 'react';
 import './App.css';
-import NameTag from './component/PropType';
+import { Parent } from './props/Parent';
 
 function App() {
   return (
     <div className="App">
-      <NameTag />
+      <Parent />
     </div>
   );
 }
